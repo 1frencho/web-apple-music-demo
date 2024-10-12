@@ -8,21 +8,23 @@ import {
   useDisclosure,
   FlexProps,
 } from "@chakra-ui/react";
-import { FiHome, FiMenu } from "react-icons/fi";
+import { FiMenu } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { SidebarContent } from "./SidebarContent";
 import { SiApplemusic } from "react-icons/si";
+import { MainLinkItems } from "./config/LinkItems";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export interface LinkItemProps {
   name: string;
+  url: string;
   icon: IconType;
 }
 
 interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
-
-const LinkItems: Array<LinkItemProps> = [{ name: "Home", icon: FiHome }];
 
 const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
@@ -45,7 +47,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
       <div className="md:hidden">
-        <SiApplemusic size={32} className="text-main" />
+        <Link to="/">
+          <SiApplemusic size={32} className="text-main" />
+        </Link>
       </div>
       HOLA
     </Flex>
@@ -53,31 +57,46 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
 };
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (isOpen) onToggle();
+  }, [pathname]);
 
   return (
-    <Box>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-        LinkItems={LinkItems}
-      />
-      <Drawer
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full"
-      >
-        <DrawerContent>
-          <SidebarContent onClose={onClose} LinkItems={LinkItems} />
-        </DrawerContent>
-      </Drawer>
-      {/* mobilenav */}
-      <MobileNav onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }}>{children}</Box>
-    </Box>
+    <>
+      <Box className="flex min-h-screen flex-col">
+        <SidebarContent
+          onClose={() => onClose}
+          display={{ base: "none", md: "block" }}
+          LinkItems={MainLinkItems}
+          pathname={pathname}
+        />
+        <Drawer
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          returnFocusOnClose={false}
+          onOverlayClick={onClose}
+          size="full"
+        >
+          <DrawerContent>
+            <SidebarContent
+              onClose={onClose}
+              LinkItems={MainLinkItems}
+              pathname={pathname}
+            />
+          </DrawerContent>
+        </Drawer>
+        {/* mobilenav */}
+        <MobileNav onOpen={onOpen} />
+        <Box ml={{ base: 0, md: 60 }} className="flex-grow">
+          {children}
+        </Box>
+        <div className="py-8" />
+      </Box>
+    </>
   );
 };
 

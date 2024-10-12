@@ -9,9 +9,11 @@ export const Loader = ({
   children: React.ReactNode;
   timeout?: number;
 }) => {
-  const [showChildren, setShowChildren] = useState(false);
+  const [showChildren, setShowChildren] = useState(true);
 
   useEffect(() => {
+    setShowChildren(false);
+
     const timer = setTimeout(() => {
       setShowChildren(true);
     }, timeout);
@@ -19,7 +21,7 @@ export const Loader = ({
     window.scrollTo(0, 0);
 
     return () => clearTimeout(timer);
-  }, [timeout]);
+  }, [children, timeout]);
 
   return (
     <Suspense fallback={<MyLoading />}>
