@@ -15,6 +15,7 @@ import { SiApplemusic } from "react-icons/si";
 import { MainLinkItems } from "./config/LinkItems";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { RiLoginCircleLine } from "react-icons/ri";
 
 export interface LinkItemProps {
   name: string;
@@ -47,11 +48,18 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
       <div className="md:hidden">
-        <Link to="/">
+        <Link to="/" aria-label="Home page">
           <SiApplemusic size={32} className="text-main" />
         </Link>
       </div>
-      HOLA
+      <div className="item flex gap-2">
+        <Link to={"/signUp"} aria-label="Sign Up" className="myPrimaryBtn">
+          Sign Up
+        </Link>
+        <Link to={"/signIn"} aria-label="Sign In" className="mySecondaryBtn">
+          <RiLoginCircleLine size={20} fontWeight={900} />
+        </Link>
+      </div>
     </Flex>
   );
 };

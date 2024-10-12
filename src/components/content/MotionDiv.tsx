@@ -15,11 +15,17 @@ type PageProps = HTMLMotionProps<"div"> & {
   animation?: "fade" | "slideFade";
   children: React.ReactNode;
   scroll?: boolean;
+  className?: string;
 };
 
-export const MotionDiv = ({ animation = "fade", children }: PageProps) => {
+export const MotionDiv = ({
+  animation = "fade",
+  children,
+  className,
+}: PageProps) => {
   return (
     <motion.div
+      className={className}
       {...animations[animation]}
       // Without styles:
       style={{

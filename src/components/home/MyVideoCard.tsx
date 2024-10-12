@@ -17,10 +17,12 @@ export const MyVideoCard = ({
         <Link to={href}>
           <div className="myBorder relative flex h-[250px] w-[300px] flex-col gap-4 rounded-lg shadow-md">
             <video
-              src={video}
+              src={`${video}`}
               autoPlay
               loop
               muted
+              preload="none"
+              aria-label="Watch video"
               className="h-full w-full rounded-lg object-cover"
             ></video>
             <div className="absolute inset-0 z-10"></div>

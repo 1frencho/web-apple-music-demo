@@ -64,4 +64,28 @@ export const artists: Artist[] = [
     country: "Korea",
     shortMessage: "The Idol of all Possibilities",
   },
+  {
+    name: "NMIXX",
+    country: "Korea",
+    image: "/assets/artists/nmixx.webp",
+    username: "nmixx",
+    genre: "K-Pop",
+    shortMessage: "NSWER",
+  },
+  {
+    name: "Rocket Punch",
+    image: "/assets/artists/rocket_punch.webp",
+    username: "rocket_punch",
+    genre: "K-Pop",
+    country: "Korea",
+    shortMessage: "Ketchy",
+  },
+  {
+    name: "TRI.BE",
+    image: "/assets/artists/tri_be.webp",
+    username: "tri_be",
+    genre: "K-Pop",
+    country: "Korea",
+    shortMessage: "TRUE",
+  },
 ];

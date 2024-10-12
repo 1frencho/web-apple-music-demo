@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
-import { ChakraProvider } from "@chakra-ui/react";
 import MyFooter from "./components/home/MyFooter";
+import { lazy } from "react";
+import { ChakraWrapper } from "./contexts/Chakra";
+const MainLayout = lazy(() => import("./layout/MainLayout"));
 
 function App() {
   return (
     <>
-      <ChakraProvider>
+      <ChakraWrapper>
         <div className="flex min-h-screen flex-col">
           {/* Main content layout */}
           <MainLayout>
@@ -14,7 +15,7 @@ function App() {
           </MainLayout>
           <MyFooter />
         </div>
-      </ChakraProvider>
+      </ChakraWrapper>
     </>
   );
 }

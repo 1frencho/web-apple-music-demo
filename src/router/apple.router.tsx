@@ -1,5 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, NotFound } from "../pages/index.lazy";
+import {
+  Artists,
+  Explore,
+  Home,
+  NotFound,
+  SignIn,
+  SignUp,
+} from "../pages/index.lazy";
 import { Loader } from "../components/content";
 import { App } from "../index.lazy";
 
@@ -13,6 +20,38 @@ export const appleRouter = createBrowserRouter([
         element: (
           <Loader timeout={500}>
             <Home />
+          </Loader>
+        ),
+      },
+      {
+        path: "/explore",
+        element: (
+          <Loader timeout={500}>
+            <Explore />
+          </Loader>
+        ),
+      },
+      {
+        path: "/artists",
+        element: (
+          <Loader timeout={500}>
+            <Artists />
+          </Loader>
+        ),
+      },
+      {
+        path: "/signUp",
+        element: (
+          <Loader>
+            <SignUp />
+          </Loader>
+        ),
+      },
+      {
+        path: "/signIn",
+        element: (
+          <Loader>
+            <SignIn />
           </Loader>
         ),
       },

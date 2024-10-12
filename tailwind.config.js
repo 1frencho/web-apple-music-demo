@@ -16,6 +16,11 @@ export default {
       fontFamily: {
         sans: ["San Francisco", "sans-serif"],
       },
+      screens: {
+        maxLaptop: {
+          max: "1554px",
+        },
+      },
     },
   },
   plugins: [],

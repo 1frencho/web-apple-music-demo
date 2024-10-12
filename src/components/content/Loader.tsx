@@ -9,23 +9,43 @@ export const Loader = ({
   children: React.ReactNode;
   timeout?: number;
 }) => {
-  const [showChildren, setShowChildren] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setShowChildren(false);
+    // Primero ocultamos el contenido y reiniciamos la animación
+    setIsVisible(false);
+    setIsAnimating(false);
 
+    // Iniciamos el timeout para mostrar la animación
     const timer = setTimeout(() => {
-      setShowChildren(true);
+      setIsAnimating(true); // Aquí empezamos la animación
     }, timeout);
+
+    // Luego de que pase el timeout, hacemos visible el contenido
+    const visibilityTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, timeout + 100); // Pequeño retraso para mostrar el contenido luego de iniciar la animación
 
     window.scrollTo(0, 0);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(visibilityTimer);
+    };
   }, [children, timeout]);
 
   return (
     <Suspense fallback={<MyLoading />}>
-      {showChildren ? <MotionDiv>{children}</MotionDiv> : <MyLoading />}
+      {/* Si ya pasó el timeout y está visible, mostrar con animación */}
+      {isAnimating && (
+        <MotionDiv className={isVisible ? "block" : "hidden"}>
+          {children}
+        </MotionDiv>
+      )}
+
+      {/* Mientras no pase el timeout, mostramos el loading */}
+      {!isAnimating && <MyLoading />}
     </Suspense>
   );
 };

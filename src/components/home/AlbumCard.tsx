@@ -19,15 +19,17 @@ export const AlbumCard = ({
       <article className="inline-block">
         <Link to={href}>
           <div
-            className="flex h-[200px] w-[200px] flex-col justify-end rounded-lg bg-cover bg-[center_70%] shadow-md"
+            className="flex h-[200px] w-[200px] flex-col justify-end rounded-lg bg-cover bg-[center_70%] bg-no-repeat shadow-md"
             style={{
               backgroundImage: `url(${image})`,
             }}
           ></div>
-          <h4 className="text-xs font-medium text-slate-600">{title}</h4>
+          <h4 className="myHover text-sm font-medium text-slate-600">
+            {title}
+          </h4>
         </Link>
         <Link to={`/artist/${username}`}>
-          <p className="text-xs text-slate-400">{artist}</p>
+          <p className="myHover text-sm text-slate-400">{artist}</p>
         </Link>
       </article>
     </>

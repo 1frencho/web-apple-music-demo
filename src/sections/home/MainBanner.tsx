@@ -8,12 +8,12 @@ function MainBanner() {
   const randomSingleArtist = shuffleArtists[artists.length - 1];
   return (
     <>
-      <h2 className="flex items-center gap-2 text-xl font-semibold">Home</h2>
+      <h2 className="text-xl font-semibold">Home</h2>
       <MyDivider />
       <h3 className="text-lg font-semibold">Featured suggestions for you</h3>
       <section className="my-2 flex gap-4 overflow-x-auto whitespace-nowrap">
         <MyVideoCard
-          shortMessage="Made for you"
+          shortMessage="Video from Apple Everyday on YouTube"
           href="/explore"
           video="/assets/videos/AppleMusicAnthem.mp4"
         />
