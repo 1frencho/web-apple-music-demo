@@ -17,7 +17,7 @@ export const ArtistCard = ({
   return (
     <div
       className={
-        "myBorder relative flex h-[250px] w-full flex-col justify-end rounded-lg bg-cover bg-[center_70%] bg-no-repeat text-white shadow-md hover:text-main sm:w-[100%] md:w-[300px] md:min-w-[300px] " +
+        "myBorder relative flex h-[250px] w-full min-w-[250px] flex-col justify-end rounded-lg bg-cover bg-[center_70%] bg-no-repeat text-white shadow-md hover:text-main sm:w-[100%] md:w-[300px] md:min-w-[300px]" +
         className
       }
       style={{

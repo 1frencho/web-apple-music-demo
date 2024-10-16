@@ -6,3 +6,4 @@ export const Explore = lazy(() => import("./Home/Explore"));
 export const SignUp = lazy(() => import("./Auth/SignUp"));
 export const SignIn = lazy(() => import("./Auth/SignIn"));
 export const Artists = lazy(() => import("./Home/Artists"));
+export const SingleArtist = lazy(() => import("./Home/SingleArtist"));

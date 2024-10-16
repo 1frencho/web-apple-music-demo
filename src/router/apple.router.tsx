@@ -6,6 +6,7 @@ import {
   NotFound,
   SignIn,
   SignUp,
+  SingleArtist,
 } from "../pages/index.lazy";
 import { Loader } from "../components/content";
 import { App } from "../index.lazy";
@@ -36,6 +37,14 @@ export const appleRouter = createBrowserRouter([
         element: (
           <Loader timeout={500}>
             <Artists />
+          </Loader>
+        ),
+      },
+      {
+        path: "/artist/:artistUsername",
+        element: (
+          <Loader timeout={500}>
+            <SingleArtist />
           </Loader>
         ),
       },

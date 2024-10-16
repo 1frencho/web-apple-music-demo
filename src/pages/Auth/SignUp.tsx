@@ -36,7 +36,7 @@ function SignUp() {
     <>
       <main className="p-6">
         <form
-          className="flex h-[75vh] flex-col items-center justify-center gap-2"
+          className="flex flex-col items-center justify-center gap-2 md:h-[75vh]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="myCard flex w-full flex-col items-center justify-center gap-4 md:w-[50vw]">

@@ -1,12 +1,15 @@
 import { SiApplemusic } from "react-icons/si";
+import { Link } from "react-router-dom";
 
-function NotFound() {
+function NotFound({ message = "Page not found" }: { message?: string }) {
   return (
     <>
-      <section className="flex h-[80vh] flex-col items-center justify-center gap-2">
+      <section className="flex h-[80vh] flex-col items-center justify-center gap-4">
         <SiApplemusic size={62} className="text-main" />
-        <h2 className="text-4xl font-medium">404</h2>
-        <p className="text-xl">Page not found</p>
+        <h2 className="text-2xl font-medium">{message}</h2>
+        <Link to={"/"} className="myPrimaryBtn">
+          <p>Go to Home</p>
+        </Link>
       </section>
     </>
   );

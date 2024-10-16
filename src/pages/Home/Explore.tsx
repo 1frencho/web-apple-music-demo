@@ -11,7 +11,7 @@ function Explore() {
         <div className="flex flex-col items-center justify-center">
           <section className="maxLaptop:flex-col flex flex-col items-center justify-center gap-4 md:flex-col lg:flex-row">
             <LargeBanner
-              hrefImg="/artists/ligthsum"
+              hrefImg="/artist/ligthsum"
               image="/assets/banners/ligthsum.webp"
             />
             <div className="flex w-full flex-wrap justify-center gap-4 transition-all duration-500 ease-in-out md:flex-wrap">
