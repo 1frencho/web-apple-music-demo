@@ -1,6 +1,6 @@
-# Apple Music Demo Clone (Not finished)
+# Apple Music Demo Clone 
 
-Task developed by [**@1frencho**](https://github.com/1frencho) assigned from Kodigo Academy.
+(20%) - Task developed by [**@1frencho**](https://github.com/1frencho) assigned from Kodigo Academy.
 
 ### Desktop Demo
 
@@ -12,8 +12,7 @@ Task developed by [**@1frencho**](https://github.com/1frencho) assigned from Kod
 
 ## Technologies used
 
-- Vanilla JS (Build with Vite)
-- TypeScript
+- React with Typescript (Build with Vite)
 
 ## Libraries used:
 
